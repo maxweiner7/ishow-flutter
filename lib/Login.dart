@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ishow_app/InputCustomizado.dart';
 
 
 class Login extends StatefulWidget {
@@ -7,6 +8,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +18,12 @@ class _LoginState extends State<Login> {
           child: Column(
             children: [
               Container(
-                height: 400,
+                height: 350,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/image/fundo.png"),
-                    fit: BoxFit.fill
-                  )
+                    image: DecorationImage(
+                        image: AssetImage("assets/image/fundo.png"),
+                        fit: BoxFit.fill
+                    )
                 ),
                 child: Stack(
                   children: [
@@ -43,32 +45,60 @@ class _LoginState extends State<Login> {
                     Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey[200],
-                            blurRadius: 15,
-                            spreadRadius: 4,
-                          )
-                        ]
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey[200],
+                              blurRadius: 15,
+                              spreadRadius: 4,
+                            )
+                          ]
                       ),
                       child: Column(
                         children: [
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: "Email"
-                            ),
-                          )
+                          InputCustomizado(
+                            hint: "Email",
+                            obscure: false,
+                            icon: Icon(Icons.person),
+                          ),
+                          InputCustomizado(
+                            hint: "Senha",
+                            obscure: true,
+                            icon: Icon(Icons.lock),
+                          ),
                         ],
                       ),
                     ),
                     SizedBox(height: 20,),
-                   // InkWell(),
+                     InkWell(
+                       onTap: () {
+
+                       },
+                       child: Container(
+                         height: 50,
+                         child: Center(
+                           child: Text("Entrar",style: TextStyle(
+                             color: Colors.white,
+                             fontSize: 20,
+                             fontWeight: FontWeight.bold
+                           ),),
+                         ),
+                         decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(10),
+                           gradient: LinearGradient(
+                             colors: [
+                               Color.fromRGBO(255, 100, 127, 1),
+                               Color.fromRGBO(255, 123, 145, 1),
+                             ]
+                           )
+                         ),
+                       ),
+                     ),
                     SizedBox(height: 10,),
                     Text("Esqueci minha senha!", style: TextStyle(
-                      color: Color(0xffff637e),
-                      fontWeight: FontWeight.bold
+                        color: Color(0xffff637e),
+                        fontWeight: FontWeight.bold
                     ),)
 
                   ],
